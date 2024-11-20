@@ -1,0 +1,50 @@
+.scroll-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+    background: url("../../../assets/background-game.png") no-repeat;
+  background-size: 200% 100%;
+
+}
+
+.scroll-container__inspiration-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 120vw;
+  top: 100px;
+  position: absolute;
+}
+
+.scroll-container__miyamoto {
+  width: 140px;
+  position: absolute;
+  bottom: 10px;
+  z-index: 0;
+  transform: scaleX(-1)
+}
+
+.scroll-container__pipe {
+  position: absolute;
+  bottom: 50px;
+  width: 240px;
+  transform: rotate(90deg);
+  z-index: 1;
+}
+
+.scroll-container__piranaplant {
+  width: 240px;
+  position: absolute;
+  bottom: 50px;
+}
+
+.scroll-container__pipeplant {
+  width: 200px;
+  position: absolute;
+  bottom: 65px;
+  transform: rotate(-90deg) scaleX(-1);
+}
+

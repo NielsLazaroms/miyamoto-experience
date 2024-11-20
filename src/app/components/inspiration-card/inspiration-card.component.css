@@ -1,0 +1,52 @@
+.inspiration__card {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  background-image: url("/assets/polaroid.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.inspiration__card__image {
+  position: absolute;
+  width: 172px;
+  height: 133px;
+  top: 16%;
+  left: 39px;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.inspiration__card__text {
+  max-width: 80%;
+  margin-top: 20px;
+  white-space: normal;
+  word-wrap: break-word;
+  text-align: center;
+  line-height: 20px;
+  font-size: 16px;
+  color: #000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+
+.inspiration__card:hover {
+  background-image: url("/assets/polaroid background.png");
+  height: 250px;
+  width: 250px;
+}
+
+.inspiration__card:hover .inspiration__card__image {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.inspiration__card:hover .inspiration__card__text {
+  opacity: 1;
+  visibility: visible;
+}

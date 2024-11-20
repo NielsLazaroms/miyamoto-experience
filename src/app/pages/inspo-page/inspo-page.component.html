@@ -1,0 +1,43 @@
+<div class="scroll-container">
+  <div class="scroll-container__inspiration-line" [ngStyle]="{  'left': linePos}">
+    <app-inspiration-card [inspirationCardText]="'Ah yes King kong I remember.  this movie inspired me to create Donkey kong. And also inspired me to add the aspects saving a character in the game'"
+                          [inspirationCardImage]="'./assets/kingkong.png'"
+                          [inspirationCardImageAltText]="'kinkong'">
+
+    </app-inspiration-card>
+    <app-inspiration-card [inspirationCardText]="'Ah  popeye. Fun fact: First I wanted to make donkey kong as popeye, but we didn’t have the rights to do this. Which made me create donkey kong. So if we did have the rights there wouldn’t be a donkey kong'"
+                          [inspirationCardImage]="'./assets/popeye.png'"
+                          [inspirationCardImageAltText]="'kinkong'">
+
+    </app-inspiration-card>
+    <app-inspiration-card [inspirationCardText]="'Ahh pacman, the lovely pizza. I mean it is not a pizza haha, but you know what i mean. without the game pacman there wouldn’t be collectable items, i got the inspiration from this game.'"
+                          [inspirationCardImage]="'./assets/pacman.png'"
+                          [inspirationCardImageAltText]="'kinkong'">
+
+    </app-inspiration-card>
+  </div>
+
+  <img
+    class="scroll-container__miyamoto"
+    src="./assets/Jetpack%20Miyamoto%20.png"
+    alt="Miyamoto"
+  />
+  <img [ngStyle]="{'left': pipePos}"
+    class="scroll-container__pipe"
+    src="./assets/Pixel%20pipe%202.png"
+    alt="Pipe"
+  />
+
+  <div>
+    <img [ngStyle]="{'right': piranaPlantPos}"
+      class="scroll-container__piranaplant"
+      src="./assets/piranaplantdicht.png"
+      alt="Miyamoto"
+    />
+    <img [ngStyle]="{'right': pipePlantPos}"
+         class="scroll-container__pipeplant"
+         src="./assets/Pixel%20pipe%202.png"
+         alt="Pipe"
+    />
+  </div>
+</div>

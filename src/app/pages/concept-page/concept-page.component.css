@@ -1,0 +1,52 @@
+.scroll-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background: url("../../../assets/background-game.png") no-repeat;
+  background-size: 100% 100%;
+  overflow: hidden;
+}
+
+.scroll-container__miyamoto {
+  width: 200px;
+  position: absolute;
+  bottom: 150px;
+  z-index: 0;
+}
+
+.scroll-container__pipe {
+  position: absolute;
+  bottom: -15px;
+  width: 235px;
+  z-index: 1;
+}
+
+
+
+.test-rectangle {
+  position: absolute;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+.test-rectangle2 {
+  position: absolute;
+  left: 0;
+  top: 30%;
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+.test-rectangle3 {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+
