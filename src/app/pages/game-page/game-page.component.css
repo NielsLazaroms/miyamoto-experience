@@ -1,0 +1,12 @@
+#screen {
+  width: 80%;
+  height: 90%;
+  outline: 1px solid black;
+}
+
+#game__container {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}

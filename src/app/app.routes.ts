@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import {ConceptPageComponent} from "./pages/concept-page/concept-page.component";
 import {InspoPageComponent} from "./pages/inspo-page/inspo-page.component";
+import {GamePageComponent} from "./pages/game-page/game-page.component";
 
 export const routes: Routes = [
   {
@@ -10,5 +11,9 @@ export const routes: Routes = [
   {
     path: 'inspiration',
     component: InspoPageComponent,
+  },
+  {
+    path: 'game',
+    component: GamePageComponent,
   },
 ];
