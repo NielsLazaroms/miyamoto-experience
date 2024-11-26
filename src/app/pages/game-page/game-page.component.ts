@@ -370,7 +370,7 @@ export class GamePageComponent implements  AfterViewInit{
     const dx = obj2.position.x - obj1.position.x;
     const dy = obj2.position.y - obj1.position.y;
 
-    return Math.sqrt(dx * dx + dy * dy); // Euclidische afstand
+    return Math.sqrt(dx * dx + dy * dy);
   }
 
 

@@ -9,13 +9,27 @@
   background-size: cover;
 }
 
-#screen {
+.arcade__machine__screen {
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-image: url("/assets/background-game.png");
   background-repeat: no-repeat;
   background-size: cover;
   top: 23%;
-  left: 30.5%;
   width: 39%;
   height: 57%;
+  color: #C1C1C1;
 }
+
+.arcade__machine__screen__header {
+  font-size: 59px;
+}
+
+.arcade__machine__screen__small-text {
+  font-size: 25px;
+}
+
+

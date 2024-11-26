@@ -36,7 +36,6 @@ export class ConceptPageComponent implements AfterViewInit {
         start: 'top top',
         end: '+=1500',
         scrub: 1,
-        // markers: true,
         pin: true,
         onUpdate: (self) => {
           if (self.progress > 0.94) {

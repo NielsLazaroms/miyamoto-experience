@@ -44,7 +44,6 @@ export class InspoPageComponent implements AfterViewInit {
           start: 'top top',
           end: '+=4000',
           scrub: 1,
-          markers: true,
           pin: true,
           onUpdate: (self) => {
             this.piranaPlantPos = `${(-200 + self.progress * 270)}px`
