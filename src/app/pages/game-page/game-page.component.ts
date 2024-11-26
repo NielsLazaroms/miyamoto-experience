@@ -1,14 +1,18 @@
-import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, EventEmitter, OnInit, ViewChild} from '@angular/core';
 import {GameCoin, GameCoordinate, GameObject, GamePlayer, MovingDirection} from "./dataSource";
+import {PopUpComponent} from "../../components/pop-up/pop-up.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-game-page',
   standalone: true,
-  imports: [],
+    imports: [
+        PopUpComponent
+    ],
   templateUrl: './game-page.component.html',
   styleUrl: './game-page.component.css'
 })
-export class GamePageComponent implements  AfterViewInit{
+export class GamePageComponent implements AfterViewInit {
   @ViewChild("screen", { static: false })
   canvasElement!: ElementRef;
 
@@ -40,7 +44,15 @@ export class GamePageComponent implements  AfterViewInit{
   private finish!: GameObject;
   private coins: GameCoin[] = []
   private keys: { [key: string]: boolean } = {};
-  constructor(
+
+  startOverlay: EventEmitter<boolean> = new EventEmitter;
+  winOverlay: EventEmitter<boolean> = new EventEmitter;
+  gameoverOverlay: EventEmitter<boolean> = new EventEmitter;
+
+  private movementEnabled: boolean = false;
+
+
+  constructor(private router: Router
   ) {
       this.backgroundImage.src = "assets/background-game.png"
       this.platformImage.src = "assets/donkey-kong-floor.png"
@@ -51,6 +63,8 @@ export class GamePageComponent implements  AfterViewInit{
   }
 
   ngAfterViewInit(): void {
+    this.startOverlay.emit(true);
+
     this.canvas = this.canvasElement.nativeElement as HTMLCanvasElement
     this.ctx = this.canvas.getContext('2d')!;
     // this.ctx.imageSmoothingEnabled = false;
@@ -173,6 +187,8 @@ export class GamePageComponent implements  AfterViewInit{
 
   private speed = 0.01
   keyDown(event: any) {
+    if(!this.movementEnabled)
+      return
     this.keys[event.keyCode] = true
   };
 
@@ -197,10 +213,8 @@ export class GamePageComponent implements  AfterViewInit{
     const UP = 38;
     const RIGHT = 39;
 
-    // this.score = this.calculateDistance(this.finish, this.player.object)
     if(this.calculateDistance(this.finish, this.player.object) < 0.02) {
-      alert("hi")
-      // this.score = 999
+      this.winOverlay.emit(true);
     }
     this.coins = this.coins.filter(coin => {
       if(!this.isOverlapping(coin.object, this.player.object)) {
@@ -241,7 +255,8 @@ export class GamePageComponent implements  AfterViewInit{
     }
     this.player.object.position.y += -yVelocity
     if(this.player.object.position.y > 1.1) {
-      //DIED
+      this.gameoverOverlay.emit(true);
+
     }
   }
 
@@ -374,5 +389,18 @@ export class GamePageComponent implements  AfterViewInit{
   }
 
 
+  navigateToNewPage() {
+    if(this.winOverlay) {
+      this.router.navigate(['/concepts']);
+    }
+    if(this.gameoverOverlay) {
+      this.router.navigate(['/inspiration']);
+
+    }
+  }
+
+  enableMovement() {
+    this.movementEnabled = true
+  }
 }
 

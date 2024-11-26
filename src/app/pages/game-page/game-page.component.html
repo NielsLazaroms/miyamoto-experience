@@ -4,3 +4,25 @@
     <canvas #screen id="screen"></canvas>
   </div>
 </div>
+<app-pop-up
+[title]="'Use these keys to play'"
+[image]="'/assets/arrow-keys.png'"
+[altText]="'arrow-keys'"
+[visibilityEmitter]="startOverlay"
+(popupVisibilityChangedEmitter)="enableMovement()"
+>
+</app-pop-up>
+
+<app-pop-up
+  [title]="'You win!'"
+  [visibilityEmitter]="winOverlay"
+  (popupVisibilityChangedEmitter)="navigateToNewPage()"
+>
+</app-pop-up>
+
+<app-pop-up
+  [title]="'Gameover!'"
+  [visibilityEmitter]="gameoverOverlay"
+  (popupVisibilityChangedEmitter)="navigateToNewPage()"
+>
+</app-pop-up>

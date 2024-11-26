@@ -1,0 +1,25 @@
+.pop-up__view {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #000000;
+  width: 30%;
+  height: 25%;
+  z-index: 98;
+  top: 40%;
+  left: 35%;
+}
+
+.pop-up__description {
+  z-index: 99;
+  height: auto;
+  color: #c1c1c1;
+  font-size: 40px;
+}
+
+.pop-up__image {
+  width: 150px;
+}

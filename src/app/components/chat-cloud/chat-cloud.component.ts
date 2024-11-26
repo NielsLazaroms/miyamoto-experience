@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnDestroy } from '@angular/core';
+import {AfterViewInit, Component, EventEmitter, Input, OnDestroy, Output} from '@angular/core';
 import { NgIf } from '@angular/common';
 
 @Component({
@@ -10,6 +10,7 @@ import { NgIf } from '@angular/common';
 })
 export class ChatCloudComponent implements AfterViewInit, OnDestroy {
   @Input() showTextCloud: boolean = true;
+  @Output() cloudTextEmitter = new EventEmitter();
   @Input() cloudText: string[] = [];
   scrollPosition: number = 0;
   sentenceIndex: number = 0;
@@ -44,18 +45,15 @@ export class ChatCloudComponent implements AfterViewInit, OnDestroy {
   }
 
   startTextUpdate(): void {
-    console.log('in func')
     if (this.showTextCloud && this.sentenceIndex < this.cloudText.length ) {
-      console.log('in first if')
         this.textUpdateInterval = setInterval(() => {
             this.sentenceIndex++;
-            console.log('sentence '+ this.sentenceIndex);
-            console.log('cloud' + this.cloudText.length)
             if (this.sentenceIndex >= this.cloudText.length) {
               clearInterval(this.textUpdateInterval);
                 this.showTextCloud = false;
+                this.cloudTextEmitter.emit();
             }
-        }, 7000);
+        }, 5000);
       }
     }
 }

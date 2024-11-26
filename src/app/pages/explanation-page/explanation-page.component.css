@@ -1,0 +1,8 @@
+.arcade__machine__screen__miyamoto--mini {
+  width: 150px
+}
+
+.arcade__machine__screen {
+  justify-content: flex-end;
+  align-items: center;
+}

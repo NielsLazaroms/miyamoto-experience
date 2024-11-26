@@ -3,11 +3,16 @@ import {ConceptPageComponent} from "./pages/concept-page/concept-page.component"
 import {InspoPageComponent} from "./pages/inspo-page/inspo-page.component";
 import {GamePageComponent} from "./pages/game-page/game-page.component";
 import {StartPageComponent} from "./pages/start-page/start-page.component";
+import {ExplanationPageComponent} from "./pages/explanation-page/explanation-page.component";
 
 export const routes: Routes = [
   {
     path: '',
     component: StartPageComponent,
+  },
+  {
+    path: 'explanation',
+    component: ExplanationPageComponent,
   },
   {
     path: 'concepts',

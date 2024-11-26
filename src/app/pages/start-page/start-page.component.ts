@@ -1,13 +1,15 @@
 import {Component, HostListener} from '@angular/core';
 import {NgIf} from "@angular/common";
 import {Router} from "@angular/router";
+import {PopUpComponent} from "../../components/pop-up/pop-up.component";
 
 
 @Component({
   selector: 'app-start-page',
   standalone: true,
   imports: [
-    NgIf
+    NgIf,
+    PopUpComponent
   ],
   templateUrl: './start-page.component.html',
   styleUrl: './start-page.component.css'
@@ -22,7 +24,7 @@ export class StartPageComponent {
   }
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent): void {
-    this.router.navigate(['/inspiration'])
+    this.router.navigate(['/explanation'])
   }
 
 }

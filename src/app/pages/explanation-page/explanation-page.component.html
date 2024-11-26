@@ -1,0 +1,10 @@
+<div class="arcade__machine">
+  <img src="assets/Arcade-machine.png" class="arcade__machine__image">
+  <div class="arcade__machine__screen">
+    <app-chat-cloud [cloudText]="['Hey there my name is Miyamoto!',
+'Want to learn more about me?', 'Throughout the experience you can collect coins!',
+'PS there are 3 hidden coins goodluck!']"
+                    [showTextCloud]="true" (cloudTextEmitter)="navigateToNextPage()"></app-chat-cloud>
+    <img src="assets/miyamoto.svg" class="arcade__machine__screen__miyamoto--mini">
+  </div>
+</div>
