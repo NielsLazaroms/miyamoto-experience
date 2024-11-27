@@ -16,13 +16,13 @@
 <app-pop-up
   [title]="'You win!'"
   [visibilityEmitter]="winOverlay"
-  (popupVisibilityChangedEmitter)="navigateToNewPage()"
+  (popupVisibilityChangedEmitter)="navigateToNewPage(true)"
 >
 </app-pop-up>
 
 <app-pop-up
   [title]="'Gameover!'"
   [visibilityEmitter]="gameoverOverlay"
-  (popupVisibilityChangedEmitter)="navigateToNewPage()"
+  (popupVisibilityChangedEmitter)="navigateToNewPage(false)"
 >
 </app-pop-up>

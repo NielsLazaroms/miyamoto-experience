@@ -24,6 +24,6 @@ export class GameoverPageComponent {
   }
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent): void {
-    this.router.navigate(['/explanation'])
+    this.router.navigate(['/game'])
   }
 }

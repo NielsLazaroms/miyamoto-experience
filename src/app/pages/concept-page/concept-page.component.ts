@@ -48,7 +48,6 @@ export class ConceptPageComponent implements AfterViewInit {
     });
     const scrollTriggerSettings = {
       scrub: true,
-      markers: true,
       end: '+=500'
     };
 

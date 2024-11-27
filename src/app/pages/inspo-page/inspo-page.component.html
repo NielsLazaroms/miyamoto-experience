@@ -17,9 +17,9 @@
     </app-inspiration-card>
   </div>
 
-  <img
+  <img [ngStyle]="{ visibility: characterVisibility ? 'visible' : 'hidden' }"
     class="scroll-container__miyamoto"
-    src="./assets/Jetpack%20Miyamoto%20.png"
+    src="{{miyamotoImage}}"
     alt="Miyamoto"
   />
   <img [ngStyle]="{'left': pipePos}"

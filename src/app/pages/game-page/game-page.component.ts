@@ -390,11 +390,10 @@ export class GamePageComponent implements AfterViewInit {
   }
 
 
-  navigateToNewPage() {
-    if(this.winOverlay) {
+  navigateToNewPage(win: boolean) {
+    if(win) {
       this.router.navigate(['/you-win']);
-    }
-    if(this.gameoverOverlay) {
+    } else {
       this.router.navigate(['/game-over']);
 
     }
