@@ -1,17 +1,20 @@
 import {AfterViewInit, Component, EventEmitter, Input, OnDestroy, Output} from '@angular/core';
-import { NgIf } from '@angular/common';
+import {NgIf, NgStyle} from '@angular/common';
 
 @Component({
   selector: 'app-chat-cloud',
   standalone: true,
-  imports: [NgIf],
+  imports: [NgIf, NgStyle],
   templateUrl: './chat-cloud.component.html',
   styleUrls: ['./chat-cloud.component.css']
 })
 export class ChatCloudComponent implements AfterViewInit, OnDestroy {
   @Input() showTextCloud: boolean = true;
-  @Output() cloudTextEmitter = new EventEmitter();
   @Input() cloudText: string[] = [];
+  @Input() cloudImageWidth: string = "50%";
+  @Input() leftPositionText: string = "45%";
+  @Input() startCountdown: boolean = true;
+  @Output() cloudTextEmitter = new EventEmitter();
   scrollPosition: number = 0;
   sentenceIndex: number = 0;
   textUpdateInterval: any;
@@ -45,15 +48,17 @@ export class ChatCloudComponent implements AfterViewInit, OnDestroy {
   }
 
   startTextUpdate(): void {
-    if (this.showTextCloud && this.sentenceIndex < this.cloudText.length ) {
+    if (this.startCountdown) {
+      if (this.showTextCloud && this.sentenceIndex < this.cloudText.length) {
         this.textUpdateInterval = setInterval(() => {
-            this.sentenceIndex++;
-            if (this.sentenceIndex >= this.cloudText.length) {
-              clearInterval(this.textUpdateInterval);
-                this.showTextCloud = false;
-                this.cloudTextEmitter.emit();
-            }
+          this.sentenceIndex++;
+          if (this.sentenceIndex >= this.cloudText.length) {
+            clearInterval(this.textUpdateInterval);
+            this.showTextCloud = false;
+            this.cloudTextEmitter.emit();
+          }
         }, 5000);
       }
     }
+  }
 }

@@ -12,18 +12,16 @@
 
 .chatcloud__image {
   display: block;
-  width: 50%;
   position: relative;
   left: 40%;
 }
 
 .chatcloud__text {
   position: absolute;
-  top: 30%;
-  left: 12%;
-  width: 100%;
+  top: 25%;
+  width: 40%;
   color: black;
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
   pointer-events: none;
 }

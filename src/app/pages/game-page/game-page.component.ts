@@ -215,6 +215,7 @@ export class GamePageComponent implements AfterViewInit {
 
     if(this.calculateDistance(this.finish, this.player.object) < 0.02) {
       this.winOverlay.emit(true);
+      this.movementEnabled = false;
     }
     this.coins = this.coins.filter(coin => {
       if(!this.isOverlapping(coin.object, this.player.object)) {
@@ -256,7 +257,7 @@ export class GamePageComponent implements AfterViewInit {
     this.player.object.position.y += -yVelocity
     if(this.player.object.position.y > 1.1) {
       this.gameoverOverlay.emit(true);
-
+      this.movementEnabled = false;
     }
   }
 
@@ -391,10 +392,10 @@ export class GamePageComponent implements AfterViewInit {
 
   navigateToNewPage() {
     if(this.winOverlay) {
-      this.router.navigate(['/concepts']);
+      this.router.navigate(['/you-win']);
     }
     if(this.gameoverOverlay) {
-      this.router.navigate(['/inspiration']);
+      this.router.navigate(['/game-over']);
 
     }
   }

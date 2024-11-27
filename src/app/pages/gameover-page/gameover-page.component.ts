@@ -1,31 +1,29 @@
 import {Component, HostListener} from '@angular/core';
+import {ChatCloudComponent} from "../../components/chat-cloud/chat-cloud.component";
 import {NgIf, NgStyle} from "@angular/common";
 import {Router} from "@angular/router";
-import {PopUpComponent} from "../../components/pop-up/pop-up.component";
-
 
 @Component({
-  selector: 'app-start-page',
+  selector: 'app-gameover-page',
   standalone: true,
   imports: [
+    ChatCloudComponent,
     NgIf,
-    PopUpComponent,
     NgStyle
   ],
-  templateUrl: './start-page.component.html',
-  styleUrl: './start-page.component.css'
+  templateUrl: './gameover-page.component.html',
+  styleUrl: './gameover-page.component.css'
 })
-export class StartPageComponent {
-  visibility: boolean = true;
+export class GameoverPageComponent {
+  showEndScreen: boolean = false;
 
   constructor(private router: Router) {
-    setInterval(() => {
-      this.visibility = !this.visibility;
-    }, 500);
+    setTimeout(() => {
+      this.showEndScreen = true;
+    },5000)
   }
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent): void {
     this.router.navigate(['/explanation'])
   }
-
 }

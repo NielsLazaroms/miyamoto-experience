@@ -1,4 +1,4 @@
-<div [style]="{ visibility: visibility ? 'visible' : 'hidden' }" class="pop-up__view">
+<div [ngStyle]="{ visibility: visibility ? 'visible' : 'hidden' }" class="pop-up__view">
   <h1 class="pop-up__description">{{title}}</h1>
   <img *ngIf="image" class="pop-up__image" src="{{image}}" alt="{{altText}}">
 </div>

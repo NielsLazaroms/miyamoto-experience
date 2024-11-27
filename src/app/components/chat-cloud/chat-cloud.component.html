@@ -1,6 +1,6 @@
 <div *ngIf="showTextCloud" class="scroll-container__chatcloud">
   <div class="chatcloud__content">
-    <img class="chatcloud__image" src="./assets/spraakwolk.png" alt="Spraakwolk">
-    <p class="chatcloud__text">{{ cloudText[sentenceIndex] }}</p>
+    <img class="chatcloud__image" [ngStyle]="{'width': cloudImageWidth}" src="./assets/spraakwolk.png" alt="Spraakwolk">
+    <p class="chatcloud__text" [ngStyle]="{'left': leftPositionText}">{{ cloudText[sentenceIndex] }}</p>
   </div>
 </div>

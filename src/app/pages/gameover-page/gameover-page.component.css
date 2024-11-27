@@ -1,0 +1,9 @@
+.arcade__machine__screen {
+  /*justify-content: flex-end;*/
+  align-items: center;
+}
+.arcade__machine__screen__text--black {
+  /*justify-content: center;*/
+  align-items: center;
+  font-size: 40px;
+}
