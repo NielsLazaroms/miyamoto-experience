@@ -2,6 +2,7 @@ import {AfterViewInit, Component, ElementRef, EventEmitter, OnInit, ViewChild} f
 import {GameCoin, GameCoordinate, GameObject, GamePlayer, MovingDirection} from "./dataSource";
 import {PopUpComponent} from "../../components/pop-up/pop-up.component";
 import {Router} from "@angular/router";
+import {CoinServiceService} from "../../services/coin-service.service";
 
 @Component({
   selector: 'app-game-page',
@@ -52,8 +53,16 @@ export class GamePageComponent implements AfterViewInit {
   private movementEnabled: boolean = false;
 
 
-  constructor(private router: Router
+  constructor(
+    private router: Router,
+    private coinService: CoinServiceService,
   ) {
+    this.score = this.coinService.getCoins();
+    this.coinService.coins$.subscribe({
+      next:(value)=> {
+        this.score = value;
+      }
+    })
       this.backgroundImage.src = "assets/background-game.png"
       this.platformImage.src = "assets/donkey-kong-floor.png"
       this.playerImage.src = "assets/mario.png"
@@ -221,7 +230,7 @@ export class GamePageComponent implements AfterViewInit {
       if(!this.isOverlapping(coin.object, this.player.object)) {
         return true
       } else {
-        this.score ++
+        this.coinService.addCoins(1);
         return false
       }
     });

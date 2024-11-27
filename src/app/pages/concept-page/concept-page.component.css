@@ -24,29 +24,28 @@
   z-index: 1;
 }
 
-
-
-.test-rectangle {
+.concept-art__card {
   position: absolute;
+  width: 200px;
+  height: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
   left: 0;
-  width: 100px;
-  height: 100px;
-  background-color: red;
+
 }
-.test-rectangle2 {
-  position: absolute;
+
+.concept-art__donkey-kong {
   left: 0;
+  background-image: url("/assets/donkey-kong-concept-art.jpg");
+
+}
+.concept-art__mario2{
   top: 30%;
-  width: 100px;
-  height: 100px;
-  background-color: red;
+  background-image: url("/assets/donkey-kong-concept-art-2.jpg");
 }
-.test-rectangle3 {
-  position: absolute;
-  left: 0;
+.concept-art__mario {
   top: 50%;
-  width: 100px;
-  height: 100px;
-  background-color: red;
+  background-image: url("/assets/mario-concept-art.jpg");
+
 }
 

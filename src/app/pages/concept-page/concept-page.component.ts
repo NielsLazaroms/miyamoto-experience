@@ -17,11 +17,25 @@ gsap.registerPlugin(ScrollTrigger);
     ChatCloudComponent
   ]
 })
-export class ConceptPageComponent implements AfterViewInit {
+export class ConceptPageComponent implements AfterViewInit, OnDestroy {
+  marioPipeAudio = new Audio('./assets/sounds/pipe-sound.mp3');
+  private gsapAnimations: GSAPTimeline | null = null;
 
 
   constructor(private router: Router) {
   }
+  ngOnDestroy(): void {
+    // Stop GSAP-animaties en verwijder ScrollTriggers
+    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    this.gsapAnimations?.kill();
+
+    // Pauzeer en ontkoppel de audio
+    this.marioPipeAudio.pause();
+    this.marioPipeAudio.src = '';
+
+    console.log('Resources cleaned up in ngOnDestroy');
+  }
+
   ngAfterViewInit(): void {
     this.initScrollAnimation();
   }
@@ -39,11 +53,16 @@ export class ConceptPageComponent implements AfterViewInit {
         pin: true,
         onUpdate: (self) => {
           if (self.progress > 0.94) {
-            console.log('next page')
-            this.router.navigate(['/inspiration'])
-
+            this.marioPipeAudio.play().then(() => {
+              setTimeout(() => {
+                this.router.navigate(['/inspiration']);
+              }, this.marioPipeAudio.duration * 1000);
+            }).catch((error) => {
+              console.error('Error with playing the audio:', error);
+              this.router.navigate(['/inspiration']);
+            });
           }
-        },
+        }
       },
     });
     const scrollTriggerSettings = {
@@ -52,9 +71,9 @@ export class ConceptPageComponent implements AfterViewInit {
     };
 
     const elements = [
-      { selector: '.test-rectangle', start: 'top+=200px center', xFrom: '-100vw', xTo: '1000' },
-      { selector: '.test-rectangle2', start: 'top+=500px center', xFrom: '100vw', xTo: '300' },
-      { selector: '.test-rectangle3', start: 'top+=500px center', xFrom: '-100vw', xTo: '1200' }
+      { selector: '.concept-art__donkey-kong', start: 'top+=200px center', xFrom: '-100vw', xTo: '1000' },
+      { selector: '.concept-art__mario2', start: 'top+=500px center', xFrom: '100vw', xTo: '300' },
+      { selector: '.concept-art__mario', start: 'top+=500px center', xFrom: '-100vw', xTo: '1200' }
     ];
 
     gsap.timeline()

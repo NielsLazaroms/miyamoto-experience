@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {ChatCloudComponent} from "../../components/chat-cloud/chat-cloud.component";
 import {NgIf, NgStyle} from "@angular/common";
+import {CoinServiceService} from "../../services/coin-service.service";
 
 @Component({
   selector: 'app-you-win-page',
@@ -15,11 +16,15 @@ import {NgIf, NgStyle} from "@angular/common";
 })
 export class YouWinPageComponent {
   showEndScreen: boolean = false;
+  score: number = 0;
 
 
-  constructor() {
+  constructor(private coinService: CoinServiceService
+  ) {
+    this.score = this.coinService.getCoins();
     setTimeout(() =>{
       this.showEndScreen = true;
     }, 5000)
   }
+
 }

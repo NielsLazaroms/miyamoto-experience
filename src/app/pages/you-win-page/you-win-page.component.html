@@ -1,5 +1,9 @@
 <div  class="arcade__machine">
   <img src="assets/Arcade-machine.png" class="arcade__machine__image">
+  <div class="arcade__machine__coins__row">
+    <p class="arcade__machine__coins__row__text">{{score}}</p>
+    <img class="arcade__machine__coins__row__image" src="./assets/coin.png" alt="coin image">
+  </div>
   <div *ngIf="!showEndScreen" [ngStyle]="{'justify-content' : 'center'}" class="arcade__machine__screen arcade__machine__screen--black">
     <h1 class="arcade__machine__screen__text--black">You Win</h1>
   </div>
@@ -7,8 +11,8 @@
   <div *ngIf="showEndScreen" [ngStyle]="{'justify-content' : 'flex-end'}" class="arcade__machine__screen arcade__machine__screen--image">
     <app-chat-cloud class="test" [cloudText]="['Goodjob! YOu just beat one of my first concept games!',
     'Want to learn more about my games?']"
-                    [cloudImageWidth]="'40%'"
-                    [leftPositionText]="'40%'"
+                    [cloudImageWidth]="'41%'"
+                    [leftPositionText]="'41%'"
                     [showTextCloud]="true"></app-chat-cloud>
     <img src="assets/miyamoto.svg" class="arcade__machine__screen__miyamoto--mini">
   </div>

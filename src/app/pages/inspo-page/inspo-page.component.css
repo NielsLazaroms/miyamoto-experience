@@ -7,8 +7,13 @@
   position: relative;
     background: url("../../../assets/background-game.png") no-repeat;
   background-size: 200% 100%;
-
 }
+
+.arcade__machine__coins__row {
+  top: 2%;
+  right: 5%;
+}
+
 
 .scroll-container__inspiration-line {
   display: flex;
@@ -17,6 +22,27 @@
   width: 120vw;
   top: 100px;
   position: absolute;
+}
+
+.rope__line {
+  position: absolute;
+  background-image: url("/assets/rope-image.png");
+  width: 100%;
+  background-size: contain;
+  height: 10px;
+  top: 70px;
+}
+
+.inspiration__card__container {
+  position: relative;
+}
+
+.inspiration__card__clothspin {
+  position: absolute;
+  top:-80px;
+  left: 100px;
+  width: 50px;
+  z-index: 1;
 }
 
 .scroll-container__miyamoto {
@@ -48,3 +74,7 @@
   transform: rotate(-90deg) scaleX(-1);
 }
 
+.scroll-container__chatcloud {
+  position: absolute;
+  top:350px;
+}

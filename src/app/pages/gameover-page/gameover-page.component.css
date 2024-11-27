@@ -5,3 +5,9 @@
   align-items: center;
   font-size: 40px;
 }
+
+.arcade__machine__coins__row {
+  top: 23%;
+  left: 65%;
+}
+

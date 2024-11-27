@@ -28,7 +28,7 @@
   text-align: center;
   line-height: 20px;
   font-size: 14px;
-  color: #000;
+  color: var(--black);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;

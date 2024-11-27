@@ -1,7 +1,6 @@
 .scroll-container__chatcloud {
   position: relative;
   display: inline-block;
-  /*width: 500px;*/
 }
 
 .chatcloud__content {
@@ -20,7 +19,7 @@
   position: absolute;
   top: 25%;
   width: 40%;
-  color: black;
+  color: var(--black);
   font-size: 14px;
   text-align: center;
   pointer-events: none;

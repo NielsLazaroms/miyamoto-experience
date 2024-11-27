@@ -1,8 +1,12 @@
 @import url("https://use.typekit.net/vfh6ihd.css");
+:root {
+  --black: #000000;
+  --gray-text-color: #c1c1c1
+}
 
 html {
   height: 100%;
-  overflow-y: auto; /* Zorg dat de hele pagina kan scrollen */
+  overflow-y: auto;
   overflow-x:hidden;
   font-family: "cc-pixel-arcade-display", sans-serif;
   font-weight: 400;
@@ -25,9 +29,9 @@ html {
   display: flex;
   flex-direction: column;
   top: 23%;
-  width: 39%;
+  width: 37.5%;
   height: 57%;
-  color: #C1C1C1;
+  color: var(--gray-text-color);
 }
 
 .arcade__machine__screen--image {
@@ -37,9 +41,28 @@ html {
 }
 
 .arcade__machine__screen--black {
-  background-color: #000000;
+  background-color: var(--black);
 }
 
 .arcade__machine__screen__miyamoto--mini {
   width: 120px
+}
+
+.arcade__machine__coins__row {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  z-index: 2;
+}
+
+.arcade__machine__coins__row__text {
+  font-size: 20px;
+  color: var(--gray-text-color)
+}
+
+.arcade__machine__coins__row__image {
+  width: 25px;
 }

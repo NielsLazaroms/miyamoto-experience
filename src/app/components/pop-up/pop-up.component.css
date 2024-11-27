@@ -5,7 +5,7 @@
   align-items: center;
   flex-direction: column;
   gap: 10px;
-  background-color: #000000;
+  background-color: var(--black);
   width: 30%;
   height: 25%;
   z-index: 98;
@@ -16,7 +16,7 @@
 .pop-up__description {
   z-index: 99;
   height: auto;
-  color: #c1c1c1;
+  color: var(--gray-text-color);
   font-size: 25px;
 }
 
