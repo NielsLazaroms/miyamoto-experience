@@ -134,9 +134,9 @@ export class InspoPageComponent implements AfterViewInit, OnDestroy {
                   this.miyamotoImage = "./assets/side-view-miyamoto.png";
                   gsap.to('.scroll-container__miyamoto', {
                     y: 300,
-                    delay: 1,
-                    duration: 3,
-                    ease: "power2.out",
+                    delay: 0.5,
+                    duration: 1,
+                    ease: "linear",
                     onComplete: () => {
                       this.router.navigate(['/game']);
                     }
